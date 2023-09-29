@@ -1,0 +1,30 @@
+---
+- hosts: all
+  become: true
+  tasks:
+
+  #Message of the Day
+  - name: Constructing Message of the Day
+    shell: 'echo "Message of the Day"; echo "Ansible Managed Node by {{ username }} "'
+    register: motd
+
+  - debug:
+      var: motd.stdout_lines
+
+  #Installation Tasks
+  - name: Installing python3, pip3, and Java open-jdk
+    package:
+      name:
+        - "{{ python_package }}"
+        - "{{ java_package }}"
+      state: latest
+      update_cache: yes
+
+  #User Creation
+  - name: Creating a user
+    shell: 'sudo useradd {{ new_user }} | cat /etc/passwd | grep {{ new_user }}'
+    register: output
+
+  - debug:
+      var: output.stdout_lines
+
