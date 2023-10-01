@@ -16,6 +16,7 @@
     package:
       name:
         - "{{ python_package }}"
+        - "{{ pip_package }}"
         - "{{ java_package }}"
       state: latest
       update_cache: yes

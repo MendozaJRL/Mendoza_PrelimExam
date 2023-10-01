@@ -2,8 +2,10 @@
 
 # CentOS
 192.168.56.101  ansible_connection=ssh          username=CentOS                 new_user=John
-192.168.56.101  python_package=python3-pip      java_package=java-1.8.0-openjdk
+192.168.56.101  python_package=python3		pip_package=python3-pip		java_package=java-1.8.0-openjdk
+192.168.56.101	ansible_python_interpreter=/usr/bin/python3			ansible_pip=pip3
 
 # Ubuntu
-192.168.56.105  ansible_connection=ssh          username=Ubuntu                 new_user=John
-192.168.56.105  python_package=python3-pip      java_package=openjdk-18-jre
+192.168.56.105  ansible_connection=ssh		username=Ubuntu	                new_user=John
+192.168.56.105  python_package=python3		pip_package=python3-pip		java_package=openjdk-18-jre
+192.168.56.105	ansible_python_interpreter=/usr/bin/python3			ansible_pip=pip3
